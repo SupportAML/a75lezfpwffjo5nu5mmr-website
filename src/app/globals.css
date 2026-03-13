@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-earth-50 via-bark-50 to-forest-50;
+    @apply text-bark-900;
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .puzzle-piece {
+    @apply cursor-pointer transition-all duration-200 hover:scale-105;
+    @apply border-2 border-bark-200 rounded-lg shadow-sm;
+    @apply bg-white backdrop-blur-sm;
+  }
+  
+  .puzzle-piece.dragging {
+    @apply scale-110 shadow-xl rotate-3 z-50;
+  }
+  
+  .puzzle-piece.correct {
+    @apply border-forest-400 shadow-forest-200 animate-celebrate;
+  }
+  
+  .drop-zone {
+    @apply border-2 border-dashed border-bark-300 rounded-lg;
+    @apply transition-colors duration-200;
+  }
+  
+  .drop-zone.drag-over {
+    @apply border-forest-500 bg-forest-50;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+    @apply rounded-2xl shadow-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-earth-500 hover:bg-earth-600 text-white font-medium;
+    @apply px-6 py-3 rounded-xl transition-all duration-200;
+    @apply shadow-lg hover:shadow-xl transform hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-forest-500 hover:bg-forest-600 text-white font-medium;
+    @apply px-4 py-2 rounded-lg transition-all duration-200;
+    @apply shadow-md hover:shadow-lg;
+  }
+  
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #f39c12;
+    animation: confetti-fall 3s linear infinite;
+  }
+  
+  @keyframes confetti-fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+}
