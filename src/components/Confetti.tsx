@@ -33,17 +33,17 @@ export default function Confetti() {
             left: `${piece.x}%`,
             top: '-20px'
           }}
-          initial={{ y: -20, rotation: 0, opacity: 1 }}
+          initial={{ y: -20, rotate: 0, opacity: 1 }}
           animate={{
-            y: [0, window.innerHeight + 100],
-            rotation: [0, 720],
+            y: [0, 1200],
+            rotate: [0, 720],
             opacity: [1, 0.8, 0]
           }}
-          transition={
+          transition={{
             duration: 3 + Math.random() * 2,
             delay: piece.delay,
             ease: 'easeOut'
-          }
+          }}
         />
       ))}
     </div>
